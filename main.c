@@ -12,7 +12,7 @@ void getRange(int* data, int dataCnt, char* buff)
     memset(printData, 0, 100);
     sortInAscending(data,dataCnt);
     cntInRange = getCountInRange(data, dataCnt, data[0], data[dataCnt - 1]);
-    sprintf(printData,"%s\n%d-%d, %d\n",HEADER_CHAR,data[0],data[dataCnt - 1], cntInRange);
+    sprintf(printData,"%s\n%d-%d, %d\n","Range, Readings",data[0],data[dataCnt - 1], cntInRange);
     strncpy(buff,printData,strlen(printData));
 }
 
