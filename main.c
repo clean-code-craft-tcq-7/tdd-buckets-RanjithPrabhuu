@@ -10,7 +10,7 @@ void getRange(int* data, int dataCount, char* buff)
     int countInRange;
 
     memset(showData, 0, 100);
-    sortInAscending(data,dataCount);
+    orderAscending(data,dataCount);
     countInRange = getCountInRange(data, dataCount, data[0], data[dataCount - 1]);
     sprintf(showData,"%s\n%d-%d, %d\n","Range, Readings",data[0],data[dataCount - 1], countInRange);
     strncpy(buff,showData,strlen(showData));
@@ -38,7 +38,7 @@ int checkRange(int value, int min, int max)
 }
 
 //function definition to sort the data in ascending
-void sortInAscending(int* data, int length)
+void orderAscending(int* data, int length)
 {
     int temp,i,j;
     for(i = 0; i < length; i++)
