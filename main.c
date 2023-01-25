@@ -4,27 +4,27 @@
 #include "main.h"
 
 //function definition to get the data range
-void getRange(int* data, int dataCnt, char* buff)
+void getRange(int* data, int dataCount, char* buff)
 {
-    char printData[100];
-    int cntInRange;
+    char showData[100];
+    int countInRange;
 
-    memset(printData, 0, 100);
-    sortInAscending(data,dataCnt);
-    cntInRange = getCountInRange(data, dataCnt, data[0], data[dataCnt - 1]);
-    sprintf(printData,"%s\n%d-%d, %d\n","Range, Readings",data[0],data[dataCnt - 1], cntInRange);
-    strncpy(buff,printData,strlen(printData));
+    memset(showData, 0, 100);
+    sortInAscending(data,dataCount);
+    countInRange = getCountInRange(data, dataCount, data[0], data[dataCount - 1]);
+    sprintf(showData,"%s\n%d-%d, %d\n","Range, Readings",data[0],data[dataCount - 1], countInRange);
+    strncpy(buff,showData,strlen(showData));
 }
 
 //function definition to find the count which is in range
 int getCountInRange(int* data, int cnt, int min, int max)
 {
-    int i,occurCnt = 0;
+    int i,occurCount = 0;
     for(i=0; i< cnt; i++)
     {
-        occurCnt += checkWithinRange(data[i], min, max);
+        occurCount += checkWithinRange(data[i], min, max);
     }
-    return occurCnt;
+    return occurCount;
 }
 
 //function definition to the range
