@@ -22,13 +22,13 @@ int getCountInRange(int* data, int cnt, int min, int max)
     int i,occurCount = 0;
     for(i=0; i< cnt; i++)
     {
-        occurCount += checkWithinRange(data[i], min, max);
+        occurCount += checkRange(data[i], min, max);
     }
     return occurCount;
 }
 
 //function definition to the range
-int checkWithinRange(int value, int min, int max)
+int checkRange(int value, int min, int max)
 {
     if(value >= min || value <= max)
     {
