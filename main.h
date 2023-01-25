@@ -5,4 +5,4 @@ int getCountInRange(int* data, int cnt, int min, int max);
 //function declaration to the range
 int checkRange(int value, int min, int max);
 //function declaration to sort the data in ascending
-void sortInAscending(int* data, int length);
+void orderAscending(int* data, int length);
