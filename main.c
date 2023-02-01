@@ -10,12 +10,13 @@ void getRange(int* data, int dataCount, char* buff)
     memset(showData, 0, 100);
     sprintf(showData,"%s\n","Range, Readings");
     
-    if((data != NULL) && (dataCnt > 0))
+    if((data != NULL) && (dataCount > 0))
     {
           orderAscending(data,dataCount);
           getRangesAndCount(data, dataCnt, &showData[strlen("Range, Readings") + 1]);
     }   
     strncpy(buff,showData,strlen(showData));
+} 
 
 //function definition to get the data range and count
 void getRangesAndCount(int* data, int len,char* strVal)
@@ -50,6 +51,7 @@ int isConsecutive(int* arr, int min, int len)
     }
     return i;
 }
+    
 //function definition to sort the data in ascending
 void orderAscending(int* data, int length)
 {
