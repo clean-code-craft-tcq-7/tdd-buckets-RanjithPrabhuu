@@ -13,7 +13,7 @@ void getRange(int* data, int dataCount, char* buff)
     if((data != NULL) && (dataCount > 0))
     {
           orderAscending(data,dataCount);
-          getRangesAndCount(data, dataCnt, &showData[strlen("Range, Readings") + 1]);
+          getRangesAndCount(data, dataCount, &showData[strlen("Range, Readings") + 1]);
     }   
     strncpy(buff,showData,strlen(showData));
 } 
