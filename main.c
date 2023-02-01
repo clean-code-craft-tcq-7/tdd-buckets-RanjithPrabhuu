@@ -85,5 +85,33 @@ int main(void)
     getRange(data1, 2, output);
     assert(strcmp(output,"Range, Readings\n4-5, 2\n") == 0);
     
+    //Test case with empty array as input
+    int data2[2];
+    memset(output, 0, 100);
+    getRange(data2, 0, output);
+    assert(strcmp(output,"Range, Readings\n") == 0);
+
+    //Test case with empty array as input but valid length value
+    memset(output, 0, 100);
+    getRange(NULL, 2, output);
+    assert(strcmp(output,"Range, Readings\n") == 0);
+
+    //Test case with empty array as input and invalid length value
+    memset(output, 0, 100);
+    getRange(NULL, 0, output);
+    assert(strcmp(output,"Range, Readings\n") == 0);
+
+    //Test case with multiple ranges
+    int data3[]= {3, 3, 5, 4, 10, 11, 12};
+    memset(output, 0, 100);
+    getRange(data3, 7, output);
+    assert(strcmp(output,"Range, Readings\n3-5, 4\n10-12, 3\n") == 0);
+
+    //Test case with one range and non range values
+    int data4[]= {3, 3, 5, 4, 10, 20};
+    memset(output, 0, 100);
+    getRange(data4, 6, output);
+    assert(strcmp(output,"Range, Readings\n3-5, 4\n") == 0);
+    
     return 0;
 }
