@@ -13,33 +13,33 @@ void getRange(int* data, int dataCount, char* buff)
     if((data != NULL) && (dataCount > 0))
     {
           orderAscending(data,dataCount);
-          getRangesAndCount(data, dataCount, &showData[strlen("Range, Readings") + 1]);
+          getRangeCount(data, dataCount, &showData[strlen("Range, Readings") + 1]);
     }   
     strncpy(buff,showData,strlen(showData));
 } 
 
 //function definition to get the data range and count
-void getRangesAndCount(int* data, int len,char* strVal)
+void getRangeCount(int* data, int len,char* strVal)
 {
     int minIdx = 0, maxIdx = 0;
-    char rangeInfo[20];
+    char rangeData[20];
 
     while(maxIdx < len)
     {
-        maxIdx = isConsecutive(data, minIdx, len);
+        maxIdx = isSequential(data, minIdx, len);
         if(data[minIdx] != data[maxIdx - 1])
         {
-            memset(rangeInfo,0,20);
-            sprintf(rangeInfo,"%d-%d, %d\n", data[minIdx], data[maxIdx - 1], (maxIdx - minIdx));
-            strncpy(strVal,rangeInfo,strlen(rangeInfo));
-            strVal += strlen(rangeInfo);
+            memset(rangeData,0,20);
+            sprintf(rangeData,"%d-%d, %d\n", data[minIdx], data[maxIdx - 1], (maxIdx - minIdx));
+            strncpy(strVal,rangeData,strlen(rangeData));
+            strVal += strlen(rangeData);
         }
         minIdx = maxIdx;
     }
 }
 
 //function definition to check whether the data is consecutive
-int isConsecutive(int* arr, int min, int len)
+int isSequential(int* arr, int min, int len)
 {
     int i;
     for(i= min + 1; i<len; i++)
