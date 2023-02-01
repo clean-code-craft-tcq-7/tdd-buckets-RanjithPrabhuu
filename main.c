@@ -7,36 +7,49 @@
 void getRange(int* data, int dataCount, char* buff)
 {
     char showData[100];
-    int countInRange;
-
     memset(showData, 0, 100);
-    orderAscending(data,dataCount);
-    countInRange = getCountInRange(data, dataCount, data[0], data[dataCount - 1]);
-    sprintf(showData,"%s\n%d-%d, %d\n","Range, Readings",data[0],data[dataCount - 1], countInRange);
+    sprintf(showData,"%s\n","Range, Readings");
+    
+    if((data != NULL) && (dataCnt > 0))
+    {
+          orderAscending(data,dataCount);
+          getRangesAndCount(data, dataCnt, &showData[strlen("Range, Readings") + 1]);
+    }   
     strncpy(buff,showData,strlen(showData));
-}
 
-//function definition to find the count which is in range
-int getCountInRange(int* data, int cnt, int min, int max)
+//function definition to get the data range and count
+void getRangesAndCount(int* data, int len,char* strVal)
 {
-    int i,occurCount = 0;
-    for(i=0; i< cnt; i++)
+    int minIdx = 0, maxIdx = 0;
+    char rangeInfo[20];
+
+    while(maxIdx < len)
     {
-        occurCount += checkRange(data[i], min, max);
+        maxIdx = isConsecutive(data, minIdx, len);
+        if(data[minIdx] != data[maxIdx - 1])
+        {
+            memset(rangeInfo,0,20);
+            sprintf(rangeInfo,"%d-%d, %d\n", data[minIdx], data[maxIdx - 1], (maxIdx - minIdx));
+            strncpy(strVal,rangeInfo,strlen(rangeInfo));
+            strVal += strlen(rangeInfo);
+        }
+        minIdx = maxIdx;
     }
-    return occurCount;
 }
 
-//function definition to the range
-int checkRange(int value, int min, int max)
+//function definition to check whether the data is consecutive
+int isConsecutive(int* arr, int min, int len)
 {
-    if(value >= min || value <= max)
+    int i;
+    for(i= min + 1; i<len; i++)
     {
-        return 1;
+        if((arr[i] - (arr[i-1]+1)) > 0)
+        {
+            return i;
+        }
     }
-    return 0;
+    return i;
 }
-
 //function definition to sort the data in ascending
 void orderAscending(int* data, int length)
 {
