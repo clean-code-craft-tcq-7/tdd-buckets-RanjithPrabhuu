@@ -9,6 +9,8 @@ void orderAscending(int* data, int length);
 
 //extern for the range processing function
 extern void test_cases_rangeProcessing(void);
+//extern for the adc conversion function
+extern void test_cases_adcConverter(void);
 
 //function declaration to convert analog data to digital
 int convertA2D(int* data, int len, float* output);
