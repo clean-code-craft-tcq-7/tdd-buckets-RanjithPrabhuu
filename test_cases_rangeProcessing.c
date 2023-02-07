@@ -45,35 +45,35 @@ void test_cases_rangeProcessing(void)
     assert(strcmp(output,"Range, Readings\n3-5, 4\n") == 0);
   
     // Test case to check the ascending sorting
-    int data1[] = { 7,9,4,6,2 };
+    int data5[] = { 7,9,4,6,2 };
     int output1[] = {2,4,6,7,9};
-    sortInAscending(data1, 5);
-    assert(memcmp(output1, data1, 5) == 0);
+    orderAscending(data5, 5);
+    assert(memcmp(output1, data5, 5) == 0);
 
     // Test case to check the ascending sorting with negative number
-    int data2[] = { 7,9,-3,6,2 };
+    int data6[] = { 7,9,-3,6,2 };
     int output2[] = {-3,2,6,7,9};
-    sortInAscending(data2, 5);
-    assert(memcmp(output2, data2, 5) == 0);
+    orderAscending(data6, 5);
+    assert(memcmp(output2, data6, 5) == 0);
 
     //Test case to check the is consecutive function
-    int data3[] = {1,2,3,6};
-    assert(isConsecutive(data3, 0, 4) == 3);
+    int data7[] = {1,2,3,6};
+    assert(isSequential(data7, 0, 4) == 3);
 
     //Test case to check the is consecutive function after the first range
-    int data4[] = {1,2,3,6,8,9};
-    assert(isConsecutive(data4, 4, 6) == 6);
+    int data8[] = {1,2,3,6,8,9};
+    assert(isSequential(data8, 4, 6) == 6);
 
     //Test case to check find consecutive ranges in list with single consecutive list
-    int data5[] = {1,2,3,6};
+    int data9[] = {1,2,3,6};
     memset(output,0,100);
-    findRangesAndCount(data5,4,output);
+    getRangeCount(data9,4,output);
     assert(strcmp(output,"1-3, 3\n") == 0);
 
     //Test case to check find consecutive ranges in list with single consecutive list
-    int data6[] = {1,2,3,6,9,10,11};
+    int data10[] = {1,2,3,6,9,10,11};
     memset(output,0,100);
-    findRangesAndCount(data6,7,output);
+    getRangeCount(data10,7,output);
     assert(strcmp(output,"1-3, 3\n9-11, 3\n") == 0);
     
     return 0;
