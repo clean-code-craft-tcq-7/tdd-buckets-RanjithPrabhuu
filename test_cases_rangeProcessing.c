@@ -79,5 +79,4 @@ void test_cases_rangeProcessing(void)
     getRangeCount(data10,7,output);
     assert(strcmp(output,"1-3, 3\n9-11, 3\n") == 0);
     
-    return 0;
 }
