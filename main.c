@@ -70,6 +70,36 @@ void orderAscending(int* data, int length)
     }
 }
 
+//function definition to convert analog data to digital
+int convertA2D(int* data, int len, float* output)
+{
+    int count = 0, outIdx = 0;
+    float tempVal;
+
+    while(count < len)
+    {
+        if(checkSample(data[count]))
+        {
+            tempVal =(float)((float)10 * ((float)data[count] / (float)4094));
+            output[outIdx] = round(tempVal);
+            outIdx++;
+        }
+        count++;
+    }
+    return outIdx;
+}
+
+//function defintion to check whether sample is valid or not
+int checkSample(int value)
+{
+    if( (value >= 0) && (value <= 4094))
+    {
+        return 1;
+    }
+
+    return 0;
+}
+
 //main function
 int main(void)
 {
