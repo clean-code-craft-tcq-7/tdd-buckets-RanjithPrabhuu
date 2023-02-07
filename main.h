@@ -6,3 +6,6 @@ void getRangeCount(int* data, int len,char* strVal);
 int isSequential(int* arr, int min, int len);
 //function declaration to sort the data in ascending
 void orderAscending(int* data, int length);
+
+//extern for the range processing function
+extern void test_cases_rangeProcessing(void);
