@@ -22,11 +22,11 @@ void test_cases_adcConverter(void)
     assert(outCnt == 2);
 
     // Test the valid sample value check function
-    assert(checkValidSample(-1) == 0);
-    assert(checkValidSample(0) == 1);
-    assert(checkValidSample(1000) == 1);
-    assert(checkValidSample(4094) == 1);
-    assert(checkValidSample(4096) == 0);
+    assert(checkSample(-1) == 0);
+    assert(checkSample(0) == 1);
+    assert(checkSample(1000) == 1);
+    assert(checkSample(4094) == 1);
+    assert(checkSample(4096) == 0);
 
     // Test the sample conversion with the round of values
     int data2[] = {4000, 3000};
