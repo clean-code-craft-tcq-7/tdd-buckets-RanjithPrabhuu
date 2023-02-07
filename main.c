@@ -104,6 +104,7 @@ int checkSample(int value)
 int main(void)
 {
     test_cases_rangeProcessing();
+    test_cases_adcConverter();
     
     return 0;
 }
