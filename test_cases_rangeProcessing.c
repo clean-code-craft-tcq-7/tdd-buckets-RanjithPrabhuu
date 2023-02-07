@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
 #include "main.h"
 
 void test_cases_rangeProcessing(void)
