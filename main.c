@@ -73,6 +73,6 @@ void orderAscending(int* data, int length)
 //main function
 int main(void)
 {
-    test_cases_rangeProcessingr();
+    test_cases_rangeProcessing();
     return 0;
 }
