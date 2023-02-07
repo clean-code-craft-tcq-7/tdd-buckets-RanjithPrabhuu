@@ -74,5 +74,6 @@ void orderAscending(int* data, int length)
 int main(void)
 {
     test_cases_rangeProcessing();
+    
     return 0;
 }
