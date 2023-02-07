@@ -38,10 +38,10 @@ void test_cases_adcConverter(void)
     assert(outCnt2 == 2);
     
     //Test with ADC sample data as input
-    char output[100];
+    char output5[100];
     int data5[] = {1637, 2047};
-    memset(output, 0, 100);
-    getRange(data5, 2, output);
-    assert(strcmp(output, "Range, Readings\n4-5, 2\n") == 0);
+    memset(output5, 0, 100);
+    getRange(data5, 2, output5);
+    assert(strcmp(output5, "Range, Readings\n4-5, 2\n") == 0);
 
 }
