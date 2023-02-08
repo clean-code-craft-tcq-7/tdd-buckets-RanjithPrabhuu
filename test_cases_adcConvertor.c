@@ -37,11 +37,4 @@ void test_cases_adcConverter(void)
     assert(memcmp(output2,result2,2)==0);
     assert(outCnt2 == 2);
     
-    //Test with ADC sample data as input
-    //char output5[100];
-    //int data5[] = {1637, 2047};
-    //memset(output5, 0, 100);
-    //getRange(data5, 2, output5);
-    //assert(strcmp(output5, "Range, Readings\n4-5, 2\n") == 0);
-
 }
